@@ -42,7 +42,7 @@ export default class Stripes extends Component {
                 top:0
             }} 
             enter={{
-                background: [stripe.background],
+                background: stripe.background,
                 opacity:[1],
                 left:[stripe.left], 
                 rotate:[stripe.rotate],
@@ -60,7 +60,7 @@ export default class Stripes extends Component {
                             <div 
                             className="stripe"
                             style={{
-                                background:background,
+                                background:background   ,
                                 opacity,
                                 transform: `rotate(${rotate}deg) translate(${left}px,${top}px)`
                             }}
@@ -76,7 +76,7 @@ export default class Stripes extends Component {
 
     render() {
         return (
-            <div className="featured_stripes">
+            <div className="featured_stripes" >
                 {this.showStripes()}
             </div>
         )
