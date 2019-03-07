@@ -4,14 +4,21 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Components/home/index';
 import SingIn from './Components/SignIn/index'; 
 import Dashboard from './Components/Admin/Dashboard';
+import PrivateRoute from './Components/authRoutes/privateRoutes';
+import PublicRoutes from './Components/authRoutes/publicRoutes';
+
+
 
 const Routes = (props) => {
+
     return (
         <Layout>
             <Switch>
-                <Route exact component = {Home} path ="/"/>
-                <Route exact component = {SingIn} path ="/sing_In"/>
-                <Route exact component = {Dashboard} path ="/dashboard"/>
+            <PrivateRoute {...props} path="/dashboard" exact component={Dashboard}/>
+              <PublicRoutes {...props} restricted={false} path="/" exact  component = {Home}  />
+              <PublicRoutes {...props} restricted={true} path="/sing_In" exact  component = {SingIn}  />
+
+                
 
 
             </Switch>
