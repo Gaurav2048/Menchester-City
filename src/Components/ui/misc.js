@@ -10,7 +10,8 @@ export const Tag = (props) => {
             color: props.color,
             padding: '5px 10px',
             display: 'inline-block',
-            fontFamily: 'rightious'
+            fontFamily: 'rightious',
+            ...props.add
         }}
     >{props.children}</div>
 
@@ -44,4 +45,24 @@ export const reverseAnArray = (array) => {
         reverseArray.push(array[i])
     }
     return reverseArray;
+}
+
+
+export const validate = (element) => {
+    let error = [true,'']
+
+    if(element.validation.email){
+        const valid = /\S+@\S+\.\S+/.test(element.value);
+        const message = `${!valid ? 'Must be a valid email' : ''}`
+        error = !valid ? [valid, message] :error; 
+    }
+
+    if(element.validation.required){
+        const valid = element.value.trim() !=='';
+        const message = `${!valid ? 'This field is required' :''}`
+        error = !valid ? [valid, message]: error;
+
+    }
+    return error; 
+
 }
