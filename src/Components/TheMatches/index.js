@@ -48,7 +48,7 @@ export default class TheMatches extends Component {
     this.setState({
       filterMatches: result === 'All' ? this.state.matches : list,
       playerFilter: 'All',
-      resultFilter: result
+      resultFilter: result 
     })
   }
 
